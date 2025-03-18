@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Page() {
   const [noCount, setNoCount] = useState(0);
@@ -27,6 +27,10 @@ export default function Page() {
 
     return phrases[Math.min(noCount, phrases.length - 1)];
   };
+
+  useEffect(()=>{
+    console.log(process.env["VERCEL_PROJECT_PRODUCTION_URL"])
+  },[])
 
   return (
     <div className="-mt-16 flex h-screen flex-col items-center justify-center">
